@@ -35,7 +35,7 @@ function installFceuAndRetroarch() {
   sudo apt-get -y install libretro-fceu retroarch
   
   mkdir -p $RETROARCH_CONFIG
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/retroarch.cfg > $HOME/.retroarch/retroarch.cfg  
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/retroarch.cfg > $HOME/.retroarch/retroarch.cfg  
 }
 
 function copyUserAndRPiConfigFiles() {
@@ -43,8 +43,8 @@ function copyUserAndRPiConfigFiles() {
   echo "## Copying user and RPi config files..."
   echo ""
   
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/.profile > ~/.profile
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/raspberry-pi-config.txt > /tmp/config.txt
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/.profile > ~/.profile
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/raspberry-pi-config.txt > /tmp/config.txt
   sudo mv /boot/config.txt /boot/config.txt.backup
   sudo mv /tmp/config.txt /boot/config.txt
 }
@@ -63,7 +63,7 @@ function setupAutoLogin() {
   echo "## Setting up auto-login..."
   echo ""
   
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/inittab > /tmp/inittab
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/inittab > /tmp/inittab
   sudo mv /etc/inittab /etc/inittab.backup
   sudo mv /tmp/inittab /etc/inittab
 }
@@ -75,18 +75,18 @@ function setupGlintES() {
   
   sudo apt-get -y install build-essential libsdl1.2-dev libboost-filesystem-dev libfreeimage-dev libfreetype6-dev
   mkdir -p $HOME/glint-es
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/bin/glint-es > $HOME/glint-es/glint-es
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/bin/glint-es > $HOME/glint-es/glint-es
   chmod +x $HOME/glint-es/glint-es
 
   mkdir -p $HOME/.glint-es
   mkdir -p $HOME/roms/
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/es_systems.cfg > $HOME/.glint-es/es_systems.cfg
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/es_theme.xml > $HOME/.glint-es/es_theme.xml
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/es_systems.cfg > $HOME/.glint-es/es_systems.cfg
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/es_theme.xml > $HOME/.glint-es/es_theme.xml
 
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/media/glint-font.ttf > $HOME/glint-font.ttf
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/media/glint-font.ttf > $HOME/glint-font.ttf
   sudo mv $HOME/glint-font.ttf /usr/share/fonts/truetype/glint-font.ttf
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/media/glint-nes-bg.png > $HOME/.glint-es/glint-nes-bg.png
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/media/glint-nes-fsbox-bg.png > $HOME/.glint-es/glint-nes-fsbox-bg.png
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/media/glint-nes-bg.png > $HOME/.glint-es/glint-nes-bg.png
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/media/glint-nes-fsbox-bg.png > $HOME/.glint-es/glint-nes-fsbox-bg.png
 }
 
 # Currently disabled
@@ -94,10 +94,10 @@ function setupGlintES() {
   # Custom splash screen stuff - disabled for now because it's unstable
   # From: http://raspberrypi.stackexchange.com/questions/1214/how-to-add-custom-loading-screen
   # apt-get -y install fbi
-  # curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/glint-nes-splash.png > /tmp/splash.png
+  # curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/glint-nes-splash.png > /tmp/splash.png
   # mv /tmp/splash.png > /etc/splash.png
   # 
-  # curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/glint-splash > /tmp/glint-splash
+  # curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/glint-splash > /tmp/glint-splash
   # mv /tmp/glint-splash /etc/init.d/aaasplash
   # 
   # chmod a+x /etc/init.d/aaasplash
@@ -109,9 +109,9 @@ function setupGlintES() {
   # USB drive support for easy ROM loading
   # apt-get -y install udev autofs
   # mkdir -p /mnt/usbdisk
-  # curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/udev-custom.rules > /etc/udev/rules.d/00-custom.rules
-  # curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/auto.master > /etc/auto.master
-  # curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/auto.master > /etc/auto.ext-usb
+  # curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/udev-custom.rules > /etc/udev/rules.d/00-custom.rules
+  # curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/auto.master > /etc/auto.master
+  # curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/auto.master > /etc/auto.ext-usb
   # 
   # /etc/init.d/udev restart
   # /etc/init.d/autofs restart
@@ -122,7 +122,7 @@ function setupAudioModules() {
   echo "## Ensuring audio is setup..."
   echo ""
   
-  curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/config/modules > $HOME/modules
+  curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/config/modules > $HOME/modules
   sudo mv $HOME/modules /etc/modules
 }
 

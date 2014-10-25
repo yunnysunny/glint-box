@@ -11,11 +11,11 @@ then
 fi
 
 # Pull down component scripts
-curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/clean-pi.sh > $HOME/clean-pi.sh
-curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/glint-nes.sh > $HOME/glint-nes.sh
-curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/usb-mounting.sh > $HOME/usb-mounting.sh
+curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/clean-pi.sh > $HOME/clean-pi.sh
+curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/glint-nes.sh > $HOME/glint-nes.sh
+curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/usb-mounting.sh > $HOME/usb-mounting.sh
 
-curl -L https://raw.github.com/normalocity/glint-nes/$GLINTNESBRANCH/scripts/copy-roms.sh > $HOME/copy-roms.sh
+curl -L https://raw.githubusercontent.com/yunnysunny/glint-box/$GLINTNESBRANCH/scripts/copy-roms.sh > $HOME/copy-roms.sh
 sudo mv $HOME/copy-roms.sh /usr/local/bin/copy-roms.sh
 sudo chmod +x /usr/local/bin/copy-roms.sh
 
